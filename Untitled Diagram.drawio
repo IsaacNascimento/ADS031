@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-09-09T21:46:04.966Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36" etag="t4UTtFqQQ7j9hWmXacQm" version="15.1.4" type="github">
+<mxfile host="app.diagrams.net" modified="2021-09-09T21:56:04.992Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36" etag="zAKfp3r469aksu6_5tjq" version="15.1.4" type="github" pages="2">
   <diagram id="1vZ9cfh2TAxz5ftT0Kra" name="Page-1">
     <mxGraphModel dx="1903" dy="823" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -21,6 +21,17 @@
         </mxCell>
         <mxCell id="cbIQ338BTW4LuEnU5a_4-6" value="Sign in" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;strokeWidth=2;align=center;" vertex="1" parent="1">
           <mxGeometry x="250" y="420" width="160" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="VpgifKulws5G5SV9JF0V" name="Page-2">
+    <mxGraphModel dx="1332" dy="576" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="ssV0czQq5xQ3oT86LQeA-0" />
+        <mxCell id="ssV0czQq5xQ3oT86LQeA-1" parent="ssV0czQq5xQ3oT86LQeA-0" />
+        <mxCell id="ssV0czQq5xQ3oT86LQeA-2" value="" style="html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.ios7.misc.iphone;strokeColor=#c0c0c0;" vertex="1" parent="ssV0czQq5xQ3oT86LQeA-1">
+          <mxGeometry x="110" y="550" width="237" height="510" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
