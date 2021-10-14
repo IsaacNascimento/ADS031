@@ -20,7 +20,7 @@ export default function RegistrarScreen({ navigation, logado }) {
         <View style={styles.meio}>
           <Text style={styles.paragra}>Nome</Text>
           <TextInput
-          style={styles.campo} autoCapitalize={false} value={email} onChangeText={(text)             => setEmail(text)}
+          style={styles.campo} autoCapitalize={false} value={email} onChangeText={(text)=> setEmail(text)}
           />
           <Text style={styles.paragra}>E-mail</Text>
           <TextInput
