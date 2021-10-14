@@ -15,7 +15,7 @@ export default function LoginScreen({ navigation, logado }) {
 
   return (
     <View style={styles.conteudo}>
-      <View style={{backgroundColor: 'gainsboro'}}>
+      <View style={{justifyContent: 'center', backgroundColor: 'gainsboro'}}>
         <Text style={styles.paragraph}>Entrar</Text>
         <View style={styles.meio}>
           <Text style={styles.paragra}>Cadastro</Text>
