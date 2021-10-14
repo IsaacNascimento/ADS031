@@ -15,7 +15,7 @@ export default function RegistrarScreen({ navigation, logado }) {
 
   return (
     <View style={styles.conteudo}>
-      <View style={{backgroundColor: 'gainsboro'}}>
+      <View style={{justifyContent: 'center', backgroundColor: 'gainsboro'}}>
         <Text style={styles.paragraph}>Cadastro</Text>
         <View style={styles.meio}>
           <Text style={styles.paragra}>Nome</Text>
