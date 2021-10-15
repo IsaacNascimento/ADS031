@@ -32,8 +32,8 @@ export default function MainNavigator() {
           <Stack.Screen
             name="registrar"
             component={RegistrarScreen}
-            options={{headerStyle: { backgroundColor: 'red' }, 
-            headerTitleStyle: { fontsize: 16, color: 'black' }
+            options={{headerStyle: {backgroundColor: 'red' }, 
+            headerTitleStyle: {fontWeight: 'bold', fontsize: 16, color: 'black' }
           }}/>
         </>
       )}
