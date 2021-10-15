@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     justifyContent: 'center',
     fontSize: 36,
-    marginBottom: 8
+    marginBottom: 8,
+    margin: 13
   }
 });
