@@ -1,42 +1,14 @@
-import React, { useContext } from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React, { useState, createContext } from 'react';
 
-import { UserContext } from '../context/UserContext';
-import LoginScreen from '../screens/LoginScreen';
-import RegistrarScreen from '../screens/RegistrarScreen';
-import HomeScreen from '../screens/HomeScreen';
-import InicioScreen from '../screens/InicioScreen'
+const UserContext = createContext([{}, () => {}]);
 
-const Stack = createNativeStackNavigator();
-
-export default function MainNavigator() {
-  const [usuario] = useContext(UserContext);
+const UserProvider = (props) => {
+  const [usuario, setUsuario] = useState({ logado: false, nome: '' });
   return (
-    <Stack.Navigator>
-      {usuario.logado ? (
-        <Stack.Screen name="home" component={HomeScreen} />
-      ) : (
-        <>
-          <Stack.Screen
-            name="Inicio" 
-            component={InicioScreen}
-            options={{headerStyle: { backgroundColor: 'red' }, 
-            headerTitleStyle: { fontWeight: 'bold', fontsize: 16, color: 'black' }
-          }}/>
-          <Stack.Screen
-            name="login"
-            component={LoginScreen}
-            options={{headerStyle: { backgroundColor: 'red' }, 
-            headerTitleStyle: { fontWeight: 'bold', fontsize: 16, color: 'black' }
-          }}/>
-          <Stack.Screen
-            name="registrar"
-            component={RegistrarScreen}
-            options={{headerStyle: {backgroundColor: 'red' }, 
-            headerTitleStyle: {fontWeight: 'bold', fontsize: 16, color: 'black' }
-          }}/>
-        </>
-      )}
-    </Stack.Navigator>
+    <UserContext.Provider value={[usuario, setUsuario]}>
+      {props.children}
+    </UserContext.Provider>
   );
-}
+};
+
+export { UserContext, UserProvider };
