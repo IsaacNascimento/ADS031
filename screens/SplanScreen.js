@@ -4,7 +4,7 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 export default function SplashScreen() {
   return (
     <View style={styles.conteudo}>
-      <Text style={styles.titulo}>Bem Vindo</Text>
+      <Text style={styles.titulo}>Bem Vindo!!!</Text>
       <Image style={styles.logo} source={require('../assets/CoolClips_vc011882.png')} />
     </View>
   );
