@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     padding: 8,
     paddingLeft: 20,
     paddingEnd: 20,
+    marginTop: 60  
   },
   campo: {
     marginBottom: 10,
@@ -91,6 +92,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     justifyContent: 'center',
     margin: 13,
-    fontSize: 36
+    fontSize: 36,
+    marginBottom: 8
   }
 });
