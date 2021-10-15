@@ -10,13 +10,15 @@ export default function RegistrarScreen({ navigation, logado }) {
   };
 
   const pressionaRegistrar = () => {
-    navigation.navigate('login');
+    navigation.navigate('registrar');
   };
 
   return (
     <View style={styles.conteudo}>
-      <View style={{justifyContent: 'center', backgroundColor: 'gainsboro'}}>
+      <View style={{ justifyContent: 'center', backgroundColor: 'gainsboro'}}>
         <Text style={styles.paragraph}>Cadastro</Text>
+      </View>
+      <View style={{ backgroundColor: 'gainsboro'}}>
         <View style={styles.meio}>
           <Text style={styles.paragra}>Nome</Text>
           <TextInput
@@ -49,11 +51,12 @@ export default function RegistrarScreen({ navigation, logado }) {
 
 const styles = StyleSheet.create({
   conteudo: {
-    flex: 1,
+    flex: 3,
     justifyContent: 'center',
     padding: 4,
     paddingLeft: 20,
     paddingEnd: 20,
+    marginTop: 100,    
   },
   campo: {
     marginBottom: 10,
@@ -91,6 +94,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     textAlign: 'center',
     justifyContent: 'center',
-    fontSize: 36
+    fontSize: 36,
+    marginBottom: 8
   }
 });
