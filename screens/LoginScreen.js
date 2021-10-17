@@ -10,7 +10,7 @@ export default function LoginScreen({ navigation, logado }) {
   };
 
   const pressionaRegistrar = () => {
-    navigation.navigate('registrar');
+    navigation.navigate('Registrar');
   };
 
   return (
