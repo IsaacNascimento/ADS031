@@ -24,13 +24,13 @@ export default function MainNavigator() {
             headerTitleStyle: { fontWeight: 'bold', fontsize: 16, color: 'black' }
           }}/>
           <Stack.Screen
-            name="login"
+            name="Login"
             component={LoginScreen}
             options={{headerStyle: { backgroundColor: 'red' }, 
             headerTitleStyle: { fontWeight: 'bold', fontsize: 16, color: 'black' }
           }}/>
           <Stack.Screen
-            name="registrar"
+            name="Registrar"
             component={RegistrarScreen}
             options={{headerStyle: {backgroundColor: 'red' }, 
             headerTitleStyle: {fontWeight: 'bold', fontsize: 16, color: 'black' }
