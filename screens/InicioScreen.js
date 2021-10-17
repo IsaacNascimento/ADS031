@@ -6,11 +6,11 @@ export default function InicioScreen({ navigation, logado }) {
   const [senha, setSenha] = useState('');
 
   const pressionaEntrar = () => {
-    navigation.navigate('login');
+    navigation.navigate('Login');
   };
 
   const pressionaRegistrar = () => {
-    navigation.navigate('registrar');
+    navigation.navigate('Registrar');
   };
 
   return (
