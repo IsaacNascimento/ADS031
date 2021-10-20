@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Button, StyleSheet, TextInput, View, Image, Text } from 'react-native';
+import { useForm, Controller } from 'react-hook-form';
+
+import { UserContext } from '../context/UserContext';
 
 export default function RegistrarScreen({ navigation, logado }) {
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
+  const [usuario, setUsuario] = useContext(UserContext);
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const pressionaEntrar = () => {
     //navigation.navigate('home');
@@ -15,34 +22,81 @@ export default function RegistrarScreen({ navigation, logado }) {
 
   return (
     <View style={styles.conteudo}>
-      <View style={{ justifyContent: 'center', backgroundColor: 'gainsboro'}}>
+      <View style={{ justifyContent: 'center', backgroundColor: 'gainsboro' }}>
         <Text style={styles.paragraph}>Cadastro</Text>
       </View>
-      <View style={{ backgroundColor: 'gainsboro'}}>
+      <View style={{ backgroundColor: 'gainsboro' }}>
         <View style={styles.meio}>
           <Text style={styles.paragra}>Nome</Text>
-          <TextInput
-          style={styles.campo} autoCapitalize={false} value={email} onChangeText={(text)=> setEmail(text)}
+          <Controller
+            control={control}
+            name="nome"
+            rules={{
+              required: { value: true, message: 'O nome é obrigatório' },
+            }}
+            render={({ field: { value, onChange } }) => (
+              <TextInput
+                style={styles.campo}
+                autoCapitalize={false}
+                value={value}
+                onChangeText={(text) => onChange(text)}
+              />
+            )}
           />
+          {errors?.nome && (
+            <Text style={{ color: 'red' }}>{errors?.nome?.message}</Text>
+          )}
           <Text style={styles.paragra}>E-mail</Text>
-          <TextInput
-          style={styles.campo} autoCapitalize={false} keyboardType="email-address"
-           value={email} onChangeText={(text) => setEmail(text)}
+          <Controller
+            control={control}
+            name="email"
+            rules={{
+              required: { value: true, message: 'Email obrigatório' },
+            }}
+            render={({ field: { value, onChange } }) => (
+              <TextInput
+                style={styles.campo}
+                autoCapitalize={false}
+                keyboardType="email-address"
+                value={value}
+                onChangeText={(text) => onChange(text)}
+              />
+            )}
           />
+          {errors?.email && (
+            <Text style={{ color: 'red' }}>{errors?.email?.message}</Text>
+          )}
           <Text style={styles.paragra}>Senha</Text>
-          <TextInput
-          style={styles.campo} autoCapitalize={false} secureTextEntry={true}
-          value={senha} onChangeText={(text) => setSenha(text)}
+          <Controller
+            control={control}
+            name="senha"
+            rules={{
+              required: { value: true, message: 'Senha obrigatória' },
+              minLength: { value: 6, message: 'Senha menor que 6 caracteres' },
+            }}
+            render={({ field: { value, onChange } }) => (
+              <TextInput
+                style={styles.campo}
+                autoCapitalize={false}
+                secureTextEntry={true}
+                value={value}
+                onChangeText={(text) => onChange(text)}
+              />
+            )}
           />
+          {errors?.senha && (
+            <Text style={{ color: 'red' }}>{errors?.senha?.message}</Text>
+          )}
         </View>
         <View style={styles.botao}>
-          <Button title="Cadastrar" color="red" onPress={pressionaEntrar} />
+          <Button title="Cadastrar" color="red" onPress={handleSubmit(pressionaEntrar)} />
         </View>
       </View>
       <View>
         <View style={styles.cadestre}>
-          <Text style={{color: 'red'}} onPress={pressionaRegistrar}>Entre na sua conta!
-          </Text>  
+          <Text style={{ color: 'red' }} onPress={pressionaRegistrar}>
+            Entre na sua conta!
+          </Text>
         </View>
       </View>
     </View>
@@ -56,7 +110,7 @@ const styles = StyleSheet.create({
     padding: 4,
     paddingLeft: 20,
     paddingEnd: 20,
-    marginTop: 100,    
+    marginTop: 100,
   },
   campo: {
     marginBottom: 10,
@@ -69,7 +123,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     paddingLeft: 45,
     paddingEnd: 45,
-    padding: 20
+    padding: 20,
   },
   paragraph: {
     marginBottom: 10,
@@ -96,6 +150,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     fontSize: 36,
     marginBottom: 8,
-    margin: 13
-  }
+    margin: 13,
+  },
 });
