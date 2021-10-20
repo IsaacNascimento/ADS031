@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Button, StyleSheet, TextInput, View, Image, Text } from 'react-native';
+import { useForm, Controller } from 'react-hook-form';
+
+import { UserContext } from '../context/UserContext';
 
 export default function LoginScreen({ navigation, logado }) {
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
+  const [usuario, setUsuario] = useContext(UserContext);
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const pressionaEntrar = () => {
-    //navigation.navigate('home');
+  const pressionaEntrar = (values) => {
+    console.log(values); // chama login
+    setUsuario({ logado: true, nome: 'Maycon' });
   };
 
   const pressionaRegistrar = () => {
@@ -15,30 +23,67 @@ export default function LoginScreen({ navigation, logado }) {
 
   return (
     <View style={styles.conteudo}>
-      <View style={{backgroundColor: 'gainsboro'}}>
+      <View style={{ backgroundColor: 'gainsboro' }}>
         <Text style={styles.paragraph}>Entrar</Text>
       </View>
-      <View style={{backgroundColor: 'gainsboro'}}>
+      <View style={{ backgroundColor: 'gainsboro' }}>
         <View style={styles.meio}>
-          <Text style={styles.paragra}>Cadastro</Text>
-          <TextInput
-          style={styles.campo} autoCapitalize={false} keyboardType="email-address"
-           value={email} onChangeText={(text) => setEmail(text)}
+          <Text style={styles.paragra}>E-mail</Text>
+          <Controller
+            control={control}
+            name="email"
+            rules={{
+              required: { value: true, message: 'Email obrigatório' },
+            }}
+            render={({ field: { value, onChange } }) => (
+              <TextInput
+                style={styles.campo}
+                autoCapitalize={false}
+                keyboardType="email-address"
+                value={value}
+                onChangeText={(text) => onChange(text)}
+              />
+            )}
           />
+          {errors?.email && (
+            <Text style={{ color: 'red' }}>{errors?.email?.message}</Text>
+          )}
           <Text style={styles.paragra}>Senha</Text>
-          <TextInput
-          style={styles.campo} autoCapitalize={false} secureTextEntry={true}
-          value={senha} onChangeText={(text) => setSenha(text)}
+          <Controller
+            control={control}
+            name="senha"
+            rules={{
+              required: { value: true, message: 'Senha obrigatória' },
+              minLength: { value: 6, message: 'Senha menor que 6 caracteres' },
+            }}
+            render={({ field: { value, onChange } }) => (
+              <TextInput
+                style={styles.campo}
+                autoCapitalize={false}
+                secureTextEntry={true}
+                placeholder="senha"
+                value={value}
+                onChangeText={(text) => onChange(text)}
+              />
+            )}
           />
+          {errors?.senha && (
+            <Text style={{ color: 'red' }}>{errors?.senha?.message}</Text>
+          )}
         </View>
         <View style={styles.botao}>
-          <Button title="Entrar" color="red" onPress={pressionaEntrar} />
+          <Button
+            title="Entrar"
+            color="red"
+            onPress={handleSubmit(pressionaEntrar)}
+          />
         </View>
       </View>
       <View>
         <View style={styles.cadestre}>
-          <Text style={{color: 'red'}} onPress={pressionaRegistrar}>Cadastre-se aqui!
-          </Text>  
+          <Text style={{ color: 'red' }} onPress={pressionaRegistrar}>
+            Cadastre-se aqui!
+          </Text>
         </View>
       </View>
     </View>
@@ -52,7 +97,7 @@ const styles = StyleSheet.create({
     padding: 8,
     paddingLeft: 20,
     paddingEnd: 20,
-    marginTop: 60  
+    marginTop: 60,
   },
   campo: {
     marginBottom: 10,
@@ -65,7 +110,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     paddingLeft: 45,
     paddingEnd: 45,
-    padding: 20
+    padding: 20,
   },
   paragraph: {
     marginBottom: 12,
@@ -93,6 +138,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     margin: 13,
     fontSize: 36,
-    marginBottom: 8
-  }
+    marginBottom: 8,
+  },
 });
