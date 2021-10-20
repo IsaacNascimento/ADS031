@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     padding: 4,
     paddingLeft: 20,
     paddingEnd: 20,
-    marginTop: 100,
+    marginTop: 150,
   },
   campo: {
     marginBottom: 10,
